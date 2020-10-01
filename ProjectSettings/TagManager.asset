@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Puice Dot
+  - Lightgreen Dot
+  - Lightcyan Dot
+  - Indigo Dot
+  - Indianred Dot
+  - 'Gold Dot '
+  - Deepskyblue Dot
+  - Coral Dot
+  - Salmon Dot
   layers:
   - Default
   - TransparentFX

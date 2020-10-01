@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1981744727690771141}
   m_Layer: 0
   m_Name: Indianred Dot
-  m_TagString: Untagged
+  m_TagString: Indianred Dot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,4 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115a44f70588d7f41ad464443a9deaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  column: 0
+  row: 0
+  targetX: 0
+  targetY: 0
   swipaAngle: 0

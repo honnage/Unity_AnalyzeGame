@@ -8,6 +8,7 @@ public class Board : MonoBehaviour
 {
     public int width;
     public int height;
+    public int offSet;
     public GameObject tilePrefab;
     public GameObject[] dots;
     private BackgroundTile[,] allTiles;
@@ -28,7 +29,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                Vector2 tempPosition = new Vector2(i, j);
+                Vector2 tempPosition = new Vector2(i, j + offSet);
                 GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = this.transform;
                 backgroundTile.name = "( " + i + " , " + j + " )";
@@ -44,6 +45,9 @@ public class Board : MonoBehaviour
                 maxIteration = 0;
 
                 GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
+                dot.GetComponent<Dot>().row = j;
+                dot.GetComponent<Dot>().column = i;
+
                 dot.transform.parent = this.transform;
                 dot.name = "( " + i + " , " + j + " )";
                 allDots[i, j] = dot;
@@ -131,7 +135,7 @@ public class Board : MonoBehaviour
             }
             nullCount = 0;
         }
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.4f);
         StartCoroutine(FillBoardCo());
     }
 
@@ -143,10 +147,13 @@ public class Board : MonoBehaviour
             {
                 if (allDots[i, j] == null)
                 {
-                    Vector2 tempPosition = new Vector2(i, j);
+                    Vector2 tempPosition = new Vector2(i, j + offSet);
                     int dotToUse = Random.Range(0, dots.Length);
                     GameObject piece = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     allDots[i, j] = piece;
+                    piece.GetComponent<Dot>().row = j;
+                    piece.GetComponent<Dot>().column = i;
+
                 }
             }
         }

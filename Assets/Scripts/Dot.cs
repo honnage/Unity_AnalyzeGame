@@ -25,12 +25,12 @@ public class Dot : MonoBehaviour
     void Start()
     {
         board = FindObjectOfType<Board>();
-        targetX = (int)transform.position.x;
-        targetY = (int)transform.position.y;
-        row = targetY;
-        column = targetX;
-        previousRow = row;
-        previousColumn = column;
+        //targetX = (int)transform.position.x;
+        //targetY = (int)transform.position.y;
+        //row = targetY;
+        //column = targetX;
+        //previousRow = row;
+        //previousColumn = column;
     }
 
     // Update is called once per frame
@@ -125,22 +125,30 @@ public class Dot : MonoBehaviour
         if (swipaAngle > -45 && swipaAngle <= 45 && column < board.width - 1){
             //ปัดไปทางขวา
             otherDot = board.allDots[column + 1, row];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
         }else if (swipaAngle > 45 && swipaAngle <= 135 && row < board.height - 1){
             //ปัดขั้น
             otherDot = board.allDots[column, row + 1];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
         }else if ((swipaAngle > 135 || swipaAngle <= -135) && column > 0){
             //ปัดไปทางซ้าย
             otherDot = board.allDots[column - 1, row];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
 
         }else if (swipaAngle < -45 && swipaAngle >= -135 && row > 0){
             //ปัดลง
             otherDot = board.allDots[column, row - 1];
+            previousRow = row;
+            previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
         }

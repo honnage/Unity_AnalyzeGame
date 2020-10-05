@@ -176,6 +176,7 @@ public class FindMatches : MonoBehaviour
                 //make it unmatched
                 board.currentDot.isMatched = false;
                 //Decide what kind of bomb to make
+                /*
                 int typeOfBomb = Random.Range(0, 100);
                 if(typeOfBomb < 50)
                 {
@@ -186,7 +187,18 @@ public class FindMatches : MonoBehaviour
                 {
                     //Make a column bomb
                     board.currentDot.MakeColumnBomb();
+                }*/
+
+                if((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
+                    || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
+                {
+                    board.currentDot.MakeRowBomb();
                 }
+                else
+                {
+                    board.currentDot.MakeColumnBomb();
+                }
+
             }
             //Is the other piece matched?
             else if (board.currentDot.otherDot != null)
@@ -198,6 +210,7 @@ public class FindMatches : MonoBehaviour
                     //Make it unmatched
                     otherDot.isMatched = false;
                     //Decide what kind of bomb to make
+                    /*
                     int typeOfBomb = Random.Range(0, 100);
                     if (typeOfBomb < 50)
                     {
@@ -209,7 +222,16 @@ public class FindMatches : MonoBehaviour
                         //Make a column bomb
                         otherDot.MakeColumnBomb();
                     }
-
+                    */
+                    if ((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
+                   || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
+                    {
+                        otherDot.MakeRowBomb();
+                    }
+                    else
+                    {
+                        otherDot.MakeColumnBomb();
+                    }
                 }
 
             }

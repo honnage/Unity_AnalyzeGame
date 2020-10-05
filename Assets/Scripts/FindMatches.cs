@@ -85,24 +85,29 @@ public class FindMatches : MonoBehaviour
             for (int j = 0; j < board.height; j++)
             {
                 GameObject currentDot = board.allDots[i, j];
-                Dot currentDotDot = currentDot.GetComponent<Dot>();
+
                 if (currentDot != null)
                 {
+                    Dot currentDotDot = currentDot.GetComponent<Dot>();
                     if (i > 0 && i < board.width - 1)
                     {
                         GameObject leftDot = board.allDots[i - 1, j];
-                        Dot leftDotDot = leftDot.GetComponent<Dot>();
                         GameObject rightDot = board.allDots[i + 1, j];
-                        Dot rightDotDot = rightDot.GetComponent<Dot>();
-                        if (leftDot != null && rightDot != null)
-                        {
-                            if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
-                            {
-                                currentMatches.Union(IsRowBomb(leftDotDot, currentDotDot, rightDotDot));
-                               
-                                currentMatches.Union(IsColumnBomb(leftDotDot, currentDotDot, rightDotDot));
 
-                                GetNearbyPieces(leftDot, currentDot, rightDot);
+                        if(leftDot != null && rightDot != null)
+                        {
+                            Dot rightDotDot = rightDot.GetComponent<Dot>();
+                            Dot leftDotDot = leftDot.GetComponent<Dot>();
+                            if (leftDot != null && rightDot != null)
+                            {
+                                if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
+                                {
+                                    currentMatches.Union(IsRowBomb(leftDotDot, currentDotDot, rightDotDot));
+
+                                    currentMatches.Union(IsColumnBomb(leftDotDot, currentDotDot, rightDotDot));
+
+                                    GetNearbyPieces(leftDot, currentDot, rightDot);
+                                }
                             }
                         }
                     }
@@ -110,21 +115,27 @@ public class FindMatches : MonoBehaviour
                     if (j > 0 && j < board.height - 1)
                     {
                         GameObject upDot = board.allDots[i, j + 1];
-                        Dot upDotDot = upDot.GetComponent<Dot>();
                         GameObject downDot = board.allDots[i, j - 1];
-                        Dot downDotDot = downDot.GetComponent<Dot>();
-                        if (upDot != null && downDot != null)
-                        {
-                            if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
-                            {
-                                currentMatches.Union(IsColumnBomb(upDotDot, currentDotDot, downDotDot));
-                                
-                                currentMatches.Union(IsRowBomb(upDotDot, currentDotDot, downDotDot));
 
-                                GetNearbyPieces(upDot, currentDot, downDot);
+                        if(upDot != null && downDot != null)
+                        {
+                            Dot downDotDot = downDot.GetComponent<Dot>();
+                            Dot upDotDot = upDot.GetComponent<Dot>();
+
+                            if (upDot != null && downDot != null)
+                            {
+                                if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
+                                {
+                                    currentMatches.Union(IsColumnBomb(upDotDot, currentDotDot, downDotDot));
+
+                                    currentMatches.Union(IsRowBomb(upDotDot, currentDotDot, downDotDot));
+
+                                    GetNearbyPieces(upDot, currentDot, downDot);
+                                }
                             }
                         }
                     }
+
 
                 }
             }

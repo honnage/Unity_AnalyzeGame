@@ -16,7 +16,7 @@ public class Dot : MonoBehaviour
 
     private FindMatches findMatches;
     private Board board;
-    private GameObject otherDot;
+    public GameObject otherDot;
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
     private Vector2 tempPosition;
@@ -61,11 +61,13 @@ public class Dot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (isMatched)
         {
             SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
             mySprite.color = new Color(1f, 1f, 1f, .2f);
         }
+        */
         targetX = column;
         targetY = row;
         if(Mathf.Abs(targetX - transform.position.x) > .1)
@@ -120,13 +122,14 @@ public class Dot : MonoBehaviour
                 column = previousColumn;
 
                 yield return new WaitForSeconds(.5f);
+                board.currentDot = null;
                 board.currentState = GameState.move;
             }
             else
             {
                 board.DestroyMatches();
             }
-            otherDot = null;
+            //otherDot = null;
         }
     }
 
@@ -155,6 +158,7 @@ public class Dot : MonoBehaviour
             swipaAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
             board.currentState = GameState.wait;
+            board.currentDot = this;
         }
         else
         {
@@ -230,6 +234,20 @@ public class Dot : MonoBehaviour
             }
             
         }
+    }
+
+    public void MakeRowBomb()
+    {
+        isRowBomb = true;
+        GameObject arrow = Instantiate(rowArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
+    }
+
+    public void MakeColumnBomb()
+    {
+        isColunBomb = true;
+        GameObject arrow = Instantiate(columnArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
     }
 }
 

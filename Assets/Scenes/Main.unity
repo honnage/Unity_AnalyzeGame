@@ -308,3 +308,4 @@ MonoBehaviour:
   - {fileID: 8004319653930225870, guid: ecf8197eb46d2c34b9a2aa78b2c3ef73, type: 3}
   - {fileID: 1968346732582804162, guid: 17b7165175d4c1041af7140a46a543e1, type: 3}
   destroyEffect: {fileID: 6336478059808548686, guid: 4cb298c49dbaf7f4daf26d3d292e4882, type: 3}
+  currentDot: {fileID: 0}

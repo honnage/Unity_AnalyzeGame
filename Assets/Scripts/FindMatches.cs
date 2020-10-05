@@ -40,7 +40,7 @@ public class FindMatches : MonoBehaviour
                             {
                                 if( currentDot.GetComponent<Dot>().isRowBomb 
                                     || leftDot.GetComponent<Dot>().isRowBomb
-                                    || rightDot.GetComponent<Dot>().isRowBomb )
+                                    || rightDot.GetComponent<Dot>().isRowBomb)
                                 {
                                     currentMatches.Union(GetRowPieces(j));
                                 }
@@ -136,6 +136,28 @@ public class FindMatches : MonoBehaviour
             }
         }
     }
+
+    public void MatchPiecesOfColor(string color)
+    {
+        for(int i = 0; i < board.width; i++)
+        {
+            for(int j = 0; j < board.height; j++)
+            {
+                //CheckBombs if that piece exists
+                if (board.allDots[i, j] != null )
+                {
+                    //Check the tag on that dot
+                    if (board.allDots[i, j].tag == color)
+                    {
+                        //Set that dot to be matched
+                        board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+
+                    }
+                }
+            }
+        }
+    }
+
 
     List<GameObject> GetColumnPieces(int colum)
     {

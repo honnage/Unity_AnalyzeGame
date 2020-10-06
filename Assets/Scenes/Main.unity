@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOffset: -10
   aspectRatio: 0.625
-  padding: 0.5
+  padding: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  width: 15
-  height: 5
+  width: 7
+  height: 10
   offSet: 10
   tilePrefab: {fileID: 846400356591070357, guid: 7a55256bcc84be0408199b2188c59f09, type: 3}
   dots:
@@ -321,4 +321,23 @@ MonoBehaviour:
   - {fileID: 6950497601990240477, guid: 6345f76d8b9486a4fa073f9fbfac97b6, type: 3}
   - {fileID: 4540231221968099683, guid: 98253ccfaa25e7d418997d6d8214837e, type: 3}
   destroyEffect: {fileID: 6336478059808548686, guid: 4cb298c49dbaf7f4daf26d3d292e4882, type: 3}
+  boardLayout:
+  - x: 0
+    y: 0
+    tileKind: 1
+  - x: 6
+    y: 9
+    tileKind: 1
+  - x: 6
+    y: 0
+    tileKind: 1
+  - x: 0
+    y: 9
+    tileKind: 1
+  - x: 4
+    y: 4
+    tileKind: 1
+  - x: 5
+    y: 4
+    tileKind: 1
   currentDot: {fileID: 0}

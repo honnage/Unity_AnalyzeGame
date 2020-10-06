@@ -11,6 +11,21 @@ public enum GameState
     move
 }
 
+public enum TileKind
+{
+    Breakable,
+    Blank,
+    Normal
+}
+
+[System.Serializable]
+public class TileType
+{
+    public int x;
+    public int y;
+    public TileKind tileKind;
+}
+
 public class Board : MonoBehaviour
 {
     
@@ -21,7 +36,8 @@ public class Board : MonoBehaviour
     public GameObject tilePrefab;
     public GameObject[] dots;
     public GameObject destroyEffect;
-    private BackgroundTile[,] allTiles;
+    public TileType[] boardLayout;
+    private bool [,] blankSpaces;
     public GameObject[,] allDots;
     public Dot currentDot;
     private FindMatches findMatches;
@@ -30,40 +46,57 @@ public class Board : MonoBehaviour
     void Start()
     {
         findMatches = FindObjectOfType<FindMatches>();
-        allTiles = new BackgroundTile[width, height];
+        blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
+    }
+
+    public void GenerateBlankSpaces()
+    {
+        for(int i = 0; i < boardLayout.Length; i++)
+        {
+            if(boardLayout[i].tileKind == TileKind.Blank)
+            {
+                blankSpaces[boardLayout[i].x, boardLayout[i].y] = true;
+            }
+        }
     }
 
     //สร้างตารางโดยลูปตามช่องที่ได้กำหนดไว้ กว้าง x สูง
     private void SetUp()
     {
+        GenerateBlankSpaces();
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-                Vector2 tempPosition = new Vector2(i, j + offSet);
-                GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
-                backgroundTile.transform.parent = this.transform;
-                backgroundTile.name = "( " + i + " , " + j + " )";
-                int dotToUse = Random.Range(0, dots.Length);
-                
-                int maxIteration = 0;
-                while (MatchesAt(i, j, dots[dotToUse]) && maxIteration < 100)
+                if( !blankSpaces[i,j] )
                 {
-                    dotToUse = Random.Range(0, dots.Length);
-                    maxIteration++;
-                    Debug.Log(maxIteration);
+                    Vector2 tempPosition = new Vector2(i, j + offSet);
+                    GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
+                    backgroundTile.transform.parent = this.transform;
+                    backgroundTile.name = "( " + i + " , " + j + " )";
+
+                    int dotToUse = Random.Range(0, dots.Length);
+
+                    int maxIteration = 0;
+
+                    while (MatchesAt(i, j, dots[dotToUse]) && maxIteration < 100)
+                    {
+                        dotToUse = Random.Range(0, dots.Length);
+                        maxIteration++;
+                        Debug.Log(maxIteration);
+                    }
+                    maxIteration = 0;
+
+                    GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
+                    dot.GetComponent<Dot>().row = j;
+                    dot.GetComponent<Dot>().column = i;
+
+                    dot.transform.parent = this.transform;
+                    dot.name = "( " + i + " , " + j + " )";
+                    allDots[i, j] = dot;
                 }
-                maxIteration = 0;
-
-                GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
-                dot.GetComponent<Dot>().row = j;
-                dot.GetComponent<Dot>().column = i;
-
-                dot.transform.parent = this.transform;
-                dot.name = "( " + i + " , " + j + " )";
-                allDots[i, j] = dot;
             }
         }
     }
@@ -72,33 +105,47 @@ public class Board : MonoBehaviour
     {
         if(column > 1 && row > 1)
         {
-            if(allDots[column - 1, row].tag == piece.tag && allDots[column - 2,row].tag == piece.tag)
-            {
-                return true;
-            }
-
-            if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
-            {
-                return true;
-            }
-        }
-        else if (column <= 1 || row <= 1)
-        {
-            if(row > 1)
-            {
-                if(allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
-                {
-                    return true;
-                }
-            }
-
-            if (column > 1)
+            if(allDots[column -1, row] != null && allDots[column - 2, row] != null)
             {
                 if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
                 {
                     return true;
                 }
             }
+
+            if (allDots[column, row - 1] != null && allDots[column, row - 2] != null)
+            {
+                if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
+                {
+                    return true;
+                }
+            }
+
+        }
+        else if (column <= 1 || row <= 1)
+        {
+            if(row > 1)
+            {
+                if (allDots[column, row - 1] != null && allDots[column, row - 2] != null)
+                {
+                    if (allDots[column, row - 1].tag == piece.tag && allDots[column, row - 2].tag == piece.tag)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            if (column > 1)
+            {
+                if (allDots[column -1, row] != null && allDots[column - 2, row] != null)
+                {
+                    if (allDots[column - 1, row].tag == piece.tag && allDots[column - 2, row].tag == piece.tag)
+                    {
+                        return true;
+                    }
+                }
+            }
+
         }
         return false;
     }

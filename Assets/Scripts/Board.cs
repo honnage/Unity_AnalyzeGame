@@ -108,22 +108,23 @@ public class Board : MonoBehaviour
         int numberHorizontal = 0;
         int numberVertical = 0;
         Dot firstPiece = findMatches.currentMatches[0].GetComponent<Dot>();
-        if(firstPiece != null)
+        if (firstPiece != null)
         {
             foreach (GameObject currentPiece in findMatches.currentMatches)
             {
                 Dot dot = currentPiece.GetComponent<Dot>();
-                if(dot.row == firstPiece.row)
+                if (dot.row == firstPiece.row)
                 {
                     numberHorizontal++;
                 }
-                if(dot.column == firstPiece.column)
+                if (dot.column == firstPiece.column)
                 {
                     numberVertical++;
                 }
             }
         }
         return (numberVertical == 5 || numberHorizontal == 5);
+
     }
 
     private void CheckToMakeBoms()
@@ -137,9 +138,7 @@ public class Board : MonoBehaviour
             if (ColumnOrRow())
             {
                 //Make a color bomb
-                //Debug.Log("Make a color bomb");
-
-                //is the current dot marched?
+                //is the current dot matched?
                 if (currentDot != null)
                 {
                     if (currentDot.isMatched)
@@ -152,7 +151,7 @@ public class Board : MonoBehaviour
                     }
                     else
                     {
-                        if(currentDot.otherDot != null)
+                        if (currentDot.otherDot != null)
                         {
                             Dot otherDot = currentDot.otherDot.GetComponent<Dot>();
                             if (otherDot.isMatched)
@@ -170,9 +169,7 @@ public class Board : MonoBehaviour
             else
             {
                 //Make a adjacent bomb
-                //Debug.Log("Make a color adjacent");
-
-                //is the current dot marched?
+                //is the current dot matched?
                 if (currentDot != null)
                 {
                     if (currentDot.isMatched)
@@ -200,7 +197,6 @@ public class Board : MonoBehaviour
                     }
                 }
             }
-
         }
     }
 

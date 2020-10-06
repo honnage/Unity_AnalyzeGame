@@ -174,9 +174,9 @@ public class Dot : MonoBehaviour
     {
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipaResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipaResist )
         {
+            board.currentState = GameState.wait;
             swipaAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
-            board.currentState = GameState.wait;
             board.currentDot = this;
         }
         else
@@ -185,39 +185,78 @@ public class Dot : MonoBehaviour
         }
     }
 
+    void MovePieceActual(Vector2 direction)
+    {
+        otherDot = board.allDots[column + (int)direction.x, row + (int)direction.y] ;
+        previousRow = row;
+        previousColumn = column;
+        otherDot.GetComponent<Dot>().column += -1 * (int)direction.x;
+        otherDot.GetComponent<Dot>().row += -1 * (int)direction.y;
+        column += (int)direction.x;
+        row += (int)direction.y;
+        StartCoroutine(CheckMoveCo());
+    }
+
     void MovePieces()
     {
         if (swipaAngle > -45 && swipaAngle <= 45 && column < board.width - 1){
             //ปัดไปทางขวา
+            /*
             otherDot = board.allDots[column + 1, row];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().column -= 1;
             column += 1;
-        }else if (swipaAngle > 45 && swipaAngle <= 135 && row < board.height - 1){
+            StartCoroutine(CheckMoveCo());
+            */
+            MovePieceActual(Vector2.right);
+
+        }
+        else if (swipaAngle > 45 && swipaAngle <= 135 && row < board.height - 1){
             //ปัดขั้น
+            /*
             otherDot = board.allDots[column, row + 1];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().row -= 1;
             row += 1;
-        }else if ((swipaAngle > 135 || swipaAngle <= -135) && column > 0){
+            StartCoroutine(CheckMoveCo());
+            */
+            MovePieceActual(Vector2.up);
+
+        }
+        else if ((swipaAngle > 135 || swipaAngle <= -135) && column > 0){
             //ปัดไปทางซ้าย
+            /*
             otherDot = board.allDots[column - 1, row];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().column += 1;
             column -= 1;
+            StartCoroutine(CheckMoveCo());
+            */
+            MovePieceActual(Vector2.left);
 
-        }else if (swipaAngle < -45 && swipaAngle >= -135 && row > 0){
+        }
+        else if (swipaAngle < -45 && swipaAngle >= -135 && row > 0){
             //ปัดลง
+            /*
             otherDot = board.allDots[column, row - 1];
             previousRow = row;
             previousColumn = column;
             otherDot.GetComponent<Dot>().row += 1;
             row -= 1;
+            StartCoroutine(CheckMoveCo());
+            */
+            MovePieceActual(Vector2.down);
+
         }
-        StartCoroutine(CheckMoveCo());
+        else
+        {
+            board.currentState = GameState.move;
+        }
+
+
     }
 
     //กำหนด tag เพื่อดูการเรียงของObject

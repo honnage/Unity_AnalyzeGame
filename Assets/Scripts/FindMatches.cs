@@ -112,50 +112,54 @@ public class FindMatches : MonoBehaviour
                     if (i > 0 && i < board.width - 1)
                     {
                         GameObject leftDot = board.allDots[i - 1, j];
+
                         GameObject rightDot = board.allDots[i + 1, j];
 
-                        if(leftDot != null && rightDot != null)
+
+                        if (leftDot != null && rightDot != null)
                         {
                             Dot rightDotDot = rightDot.GetComponent<Dot>();
                             Dot leftDotDot = leftDot.GetComponent<Dot>();
-                            if (leftDot != null && rightDot != null)
+                            if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
                             {
-                                if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
-                                {
-                                    currentMatches.Union(IsRowBomb(leftDotDot, currentDotDot, rightDotDot));
 
-                                    currentMatches.Union(IsColumnBomb(leftDotDot, currentDotDot, rightDotDot));
+                                currentMatches.Union(IsRowBomb(leftDotDot, currentDotDot, rightDotDot));
 
-                                    currentMatches.Union(IsAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
+                                currentMatches.Union(IsColumnBomb(leftDotDot, currentDotDot, rightDotDot));
 
-                                    GetNearbyPieces(leftDot, currentDot, rightDot);
-                                }
+                                currentMatches.Union(IsAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
+
+
+                                GetNearbyPieces(leftDot, currentDot, rightDot);
+
                             }
                         }
+
                     }
 
                     if (j > 0 && j < board.height - 1)
                     {
                         GameObject upDot = board.allDots[i, j + 1];
+
                         GameObject downDot = board.allDots[i, j - 1];
 
-                        if(upDot != null && downDot != null)
+
+                        if (upDot != null && downDot != null)
                         {
                             Dot downDotDot = downDot.GetComponent<Dot>();
                             Dot upDotDot = upDot.GetComponent<Dot>();
-
-                            if (upDot != null && downDot != null)
+                            if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
                             {
-                                if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
-                                {
-                                    currentMatches.Union(IsColumnBomb(upDotDot, currentDotDot, downDotDot));
 
-                                    currentMatches.Union(IsRowBomb(upDotDot, currentDotDot, downDotDot));
+                                currentMatches.Union(IsColumnBomb(upDotDot, currentDotDot, downDotDot));
 
-                                    currentMatches.Union(IsAdjacentBomb(upDotDot, currentDotDot, downDotDot));
+                                currentMatches.Union(IsRowBomb(upDotDot, currentDotDot, downDotDot));
 
-                                    GetNearbyPieces(upDot, currentDot, downDot);
-                                }
+                                currentMatches.Union(IsAdjacentBomb(upDotDot, currentDotDot, downDotDot));
+
+
+                                GetNearbyPieces(upDot, currentDot, downDot);
+
                             }
                         }
                     }
@@ -164,6 +168,7 @@ public class FindMatches : MonoBehaviour
                 }
             }
         }
+
     }
 
     public void MatchPiecesOfColor(string color)
@@ -192,7 +197,7 @@ public class FindMatches : MonoBehaviour
         List<GameObject> dots = new List<GameObject>();
         for(int i = coloumn - 1; i <= coloumn + 1; i++)
         {
-            for(int j = row -1; j <= row +1; j++)
+            for(int j = row - 1; j <= row + 1; j++)
             {
                 //Check if the piece is insice the board
                 if (i >= 0 && i < board.width && j >= 0 && j < board.height)
@@ -238,7 +243,7 @@ public class FindMatches : MonoBehaviour
         //Did the player move something?
         if (board.currentDot != null)
         {
-            //Is this piece they move matched?
+            //Is the piece they moved matched?
             if (board.currentDot.isMatched)
             {
                 //make it unmatched
@@ -246,19 +251,16 @@ public class FindMatches : MonoBehaviour
                 //Decide what kind of bomb to make
                 /*
                 int typeOfBomb = Random.Range(0, 100);
-                if(typeOfBomb < 50)
-                {
+                if(typeOfBomb < 50){
                     //Make a row bomb
                     board.currentDot.MakeRowBomb();
-                }
-                else if (typeOfBomb >= 50)
-                {
+                }else if(typeOfBomb >= 50){
                     //Make a column bomb
                     board.currentDot.MakeColumnBomb();
-                }*/
-
-                if((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
-                    || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
+                }
+                */
+                if ((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
+                   || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
                 {
                     board.currentDot.MakeRowBomb();
                 }
@@ -266,7 +268,6 @@ public class FindMatches : MonoBehaviour
                 {
                     board.currentDot.MakeColumnBomb();
                 }
-
             }
             //Is the other piece matched?
             else if (board.currentDot.otherDot != null)
@@ -277,8 +278,8 @@ public class FindMatches : MonoBehaviour
                 {
                     //Make it unmatched
                     otherDot.isMatched = false;
-                    //Decide what kind of bomb to make
                     /*
+                    //Decide what kind of bomb to make
                     int typeOfBomb = Random.Range(0, 100);
                     if (typeOfBomb < 50)
                     {
@@ -301,9 +302,9 @@ public class FindMatches : MonoBehaviour
                         otherDot.MakeColumnBomb();
                     }
                 }
-
             }
-            
+
         }
     }
+
 }

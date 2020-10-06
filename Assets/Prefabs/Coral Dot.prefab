@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ad0809d0419c3414eb640359f5bf7be1, type: 3}
   m_Color: {r: 0.9725491, g: 0.59607846, b: 0.1254902, a: 1}
   m_FlipX: 0
@@ -137,10 +137,10 @@ MonoBehaviour:
   targetY: 0
   isMatched: 0
   otherDot: {fileID: 0}
-  swipaAngle: 0
-  swipaResist: 1
+  swipeAngle: 0
+  swipeResist: 1
   isColorBomb: 0
-  isColunBomb: 0
+  isColumnBomb: 0
   isRowBomb: 0
   isAdjacentBomb: 0
   adjacentMarker: {fileID: 359733714349459071, guid: 6b72f00730a009b4ea6af589947dc09e, type: 3}

@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class BackgroundTile : MonoBehaviour
 {
+    public int hitPoints;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        Initialize();
+        if (hitPoints <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        hitPoints -= damage;
     }
 
-    void Initialize()
-    {
-    
-    }
 }

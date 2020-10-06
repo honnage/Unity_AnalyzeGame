@@ -203,22 +203,22 @@ public class Board : MonoBehaviour
     //ทำลายที่จับคู่กัน
     private void DestroyMatchesAt(int column, int row)
     {
-        if(allDots[column, row].GetComponent<Dot>().isMatched)
+        if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
             //How many elements are in the matched pieces list from findmatches?
-            if(findMatches.currentMatches.Count >= 4)
+            if (findMatches.currentMatches.Count >= 4)
             {
                 CheckToMakeBoms();
             }
 
             GameObject particle = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
-            Destroy(allDots[column,row]);
+            Destroy(allDots[column, row]);
             allDots[column, row] = null;
         }
     }
 
-   //วนลูปตรวจสอบคู่ที่ตรงกันก่อนทำลาย
+    //วนลูปตรวจสอบคู่ที่ตรงกันก่อนทำลาย
     public void DestroyMatches()
     {
         for (int i = 0; i < width; i++)
@@ -232,21 +232,21 @@ public class Board : MonoBehaviour
             }
         }
         findMatches.currentMatches.Clear();
-        StartCoroutine(DecreseRowCo());
+        StartCoroutine(DecreaseRowCo());
     }
 
-    private IEnumerator DecreseRowCo()
+    private IEnumerator DecreaseRowCo()
     {
         int nullCount = 0;
-        for(int i = 0; i< width; i++)
+        for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-                if(allDots[i, j] == null)
+                if (allDots[i, j] == null)
                 {
                     nullCount++;
                 }
-                else if(nullCount > 0)
+                else if (nullCount > 0)
                 {
                     allDots[i, j].GetComponent<Dot>().row -= nullCount;
                     allDots[i, j] = null;
@@ -254,7 +254,7 @@ public class Board : MonoBehaviour
             }
             nullCount = 0;
         }
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.5f);
         StartCoroutine(FillBoardCo());
     }
 

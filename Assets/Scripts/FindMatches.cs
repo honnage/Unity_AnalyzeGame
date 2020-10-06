@@ -63,17 +63,17 @@ public class FindMatches : MonoBehaviour
     private List<GameObject> IsColumnBomb(Dot dot1, Dot dot2, Dot dot3)
     {
         List<GameObject> currentDots = new List<GameObject>();
-        if (dot1.isColunBomb)
+        if (dot1.isColumnBomb)
         {
             currentMatches.Union(GetColumnPieces(dot1.column));
         }
 
-        if (dot2.isColunBomb)
+        if (dot2.isColumnBomb)
         {
             currentMatches.Union(GetColumnPieces(dot2.column));
         }
 
-        if (dot3.isColunBomb)
+        if (dot3.isColumnBomb)
         {
             currentMatches.Union(GetColumnPieces(dot3.column));
         }
@@ -259,8 +259,8 @@ public class FindMatches : MonoBehaviour
                     board.currentDot.MakeColumnBomb();
                 }
                 */
-                if ((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
-                   || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
+                if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45)
+                   || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135))
                 {
                     board.currentDot.MakeRowBomb();
                 }
@@ -292,8 +292,8 @@ public class FindMatches : MonoBehaviour
                         otherDot.MakeColumnBomb();
                     }
                     */
-                    if ((board.currentDot.swipaAngle > -45 && board.currentDot.swipaAngle <= 45)
-                   || (board.currentDot.swipaAngle < -135 || board.currentDot.swipaAngle >= 135))
+                    if ((board.currentDot.swipeAngle > -45 && board.currentDot.swipeAngle <= 45)
+                   || (board.currentDot.swipeAngle < -135 || board.currentDot.swipeAngle >= 135))
                     {
                         otherDot.MakeRowBomb();
                     }

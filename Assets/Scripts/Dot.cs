@@ -14,6 +14,7 @@ public class Dot : MonoBehaviour
     public int targetY;
     public bool isMatched = false;
 
+    private HintManager hintManager;
     private FindMatches findMatches;
     private Board board;
     public GameObject otherDot;
@@ -45,6 +46,7 @@ public class Dot : MonoBehaviour
         isColorBomb = false;
         isAdjacentBomb = false;
 
+        hintManager = FindObjectOfType<HintManager>();
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         //targetX = (int)transform.position.x;
@@ -60,8 +62,20 @@ public class Dot : MonoBehaviour
     //This is for testing and Debug only.
     private void OnMouseOver()
     {
+        //Destroy the hint
+        if (hintManager != null)
+        {
+            hintManager.DestroyHint();
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
+            //Destroy the hint
+            if (hintManager != null)
+            {
+                hintManager.DestroyHint();
+            }
+
             isAdjacentBomb = true;
             GameObject marker = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
             marker.transform.parent = this.transform;
@@ -162,6 +176,12 @@ public class Dot : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //Destroy the hint
+        if (hintManager != null)
+        {
+            hintManager.DestroyHint();
+        }
+
         if (board.currentState == GameState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

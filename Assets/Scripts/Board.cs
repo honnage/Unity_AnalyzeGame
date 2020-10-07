@@ -417,6 +417,7 @@ public class Board : MonoBehaviour
 
         if (IsDeadloched())
         {
+            ShuffleBoard();
             Debug.Log("Deadlocked");
         }
         currentState = GameState.move;
@@ -514,5 +515,64 @@ public class Board : MonoBehaviour
             }
         }
         return true;
+    }
+
+    private void ShuffleBoard()
+    {
+        //Create a list of game objects
+        List<GameObject> newBoard = new List<GameObject>();
+        //Add every piece to this list
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (allDots[i, j] != null)
+                {
+                    newBoard.Add(allDots[i, j]);
+                }
+            }
+        }
+        //for every spot on the board
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                //if this spot shouldn't fe blank
+                if (!blankSpaces[i, j])
+                {
+                    //Pick a random number
+                    int pieceToUse = Random.Range(0, newBoard.Count);
+
+                    int maxIteration = 0;
+
+                    while (MatchesAt(i, j, newBoard[pieceToUse]) && maxIteration < 100)
+                    {
+                        pieceToUse = Random.Range(0, newBoard.Count);
+                        maxIteration++;
+                        Debug.Log(maxIteration);
+                    }
+
+                    //Make a container for the piece
+                    Dot piece = newBoard[pieceToUse].GetComponent<Dot>();
+
+                    maxIteration = 0;
+
+                    //Assign the column and row to the piece
+                    piece.column = i;
+                    piece.row = j;
+
+                    //Fill in the dots array with this new piece
+                    allDots[i, j] = newBoard[pieceToUse];
+
+                    //Remove it from the list
+                    newBoard.Remove(newBoard[pieceToUse]);
+                }
+            }
+        }
+        //Check if it's still deadlocked
+        if (IsDeadloched())
+        {
+            ShuffleBoard();
+        }
     }
 }

@@ -13,6 +13,11 @@ TagManager:
   - Deepskyblue Dot
   - Coral Dot
   - Salmon Dot
+  - Pig Dot
+  - Chromosome Dot
+  - Rat Dot
+  - Virus Dot
+  - Erythrocyte Dot
   layers:
   - Default
   - TransparentFX

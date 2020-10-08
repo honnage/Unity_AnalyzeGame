@@ -43,10 +43,15 @@ public class Board : MonoBehaviour
     public GameObject[,] allDots;
     public Dot currentDot;
     private FindMatches findMatches;
+    public int basePieceValue = 10; //คะแนน
+    private int streakValue = 1;
+    private ScoreManager scoreManager;
 
-    // Start is called before the first frame update
+
+    // Use this for initialization
     void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
         blankSpaces = new bool[width, height];
@@ -93,7 +98,11 @@ public class Board : MonoBehaviour
                 if( !blankSpaces[i,j] )
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
-                    GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
+                    //ใส่กระเบื้องสีเทา
+                    Vector2 tilePosition = new Vector2(i, j);
+                    //ใส่กระเบื้องเปลี่ยนจาก tempPosition เป็น  tilePosition 
+                    //ถ้าไม่ใส่ ใช้ tempPosition
+                    GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                     backgroundTile.transform.parent = this.transform;
                     backgroundTile.name = "( " + i + " , " + j + " )";
 
@@ -277,17 +286,22 @@ public class Board : MonoBehaviour
             {
                 CheckToMakeBoms();
             }
+
             //Does a tile need to break?
             if (breakableTiles[column, row] != null)
             {
                 //if it does, give one damage.
                 breakableTiles[column, row].TakeDamage(1);
-
+                if(breakableTiles[column, row].hitPoints <= 0)
+                {
+                    breakableTiles[column, row] = null;
+                }
             }
 
             GameObject particle = Instantiate(destroyParticle, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
             Destroy(allDots[column, row]);
+            scoreManager.IncreaseScore(basePieceValue * streakValue);
             allDots[column, row] = null;
         }
     }
@@ -408,6 +422,7 @@ public class Board : MonoBehaviour
 
         while (MatchesOnBoard())
         {
+            streakValue ++;
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
@@ -421,6 +436,7 @@ public class Board : MonoBehaviour
             Debug.Log("Deadlocked");
         }
         currentState = GameState.move;
+        streakValue = 1;
     }
 
     private void SwitchPieces(int column, int row, Vector2 direction)

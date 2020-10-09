@@ -5,24 +5,35 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text scoreText;
-    public int score;
+	private Board board;
+	public Text scoreText;
+	public int score;
+	public Image scoreBar;
+	// Use this for initialization
+	void Start()
+	{
+		board = FindObjectOfType<Board>();
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
+		scoreText.text = "" + score;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        scoreText.text = "" + score ;
-    }
+	public void IncreaseScore(int amountToIncrease)
+	{
+		score += amountToIncrease;
+		if (board != null && scoreBar != null)
+		{
 
-    public void IncreaseScore(int amountToIncrease)
-    {
-        score += amountToIncrease;
+			int length = board.scoreGoals.Length;
 
-    }
+			scoreBar.fillAmount = (float)score / (float)board.scoreGoals[length - 1];
+
+
+		}
+	}
+
+	
 }

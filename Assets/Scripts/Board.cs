@@ -47,6 +47,7 @@ public class Board : MonoBehaviour
     private int streakValue = 1;
     private ScoreManager scoreManager;
     public float refillDelay = 0.5f;
+    public int[] scoreGoals;
 
 
     // Use this for initialization

@@ -18,6 +18,7 @@ TagManager:
   - Rat Dot
   - Virus Dot
   - Erythrocyte Dot
+  - Color
   layers:
   - Default
   - TransparentFX

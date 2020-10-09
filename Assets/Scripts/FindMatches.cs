@@ -202,8 +202,11 @@ public class FindMatches : MonoBehaviour
                 //Check if the piece is insice the board
                 if (i >= 0 && i < board.width && j >= 0 && j < board.height)
                 {
-                    dots.Add(board.allDots[i, j]);
-                    board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                    if (board.allDots[i, j] != null)
+                    {
+                        dots.Add(board.allDots[i, j]);
+                        board.allDots[i, j].GetComponent<Dot>().isMatched = true;
+                    }
                 }
             }
         }

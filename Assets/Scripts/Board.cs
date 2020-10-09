@@ -28,7 +28,7 @@ public class TileType
 
 public class Board : MonoBehaviour
 {
-    
+
     public GameState currentState = GameState.move;
     public int width;
     public int height;
@@ -38,7 +38,7 @@ public class Board : MonoBehaviour
     public GameObject[] dots;
     public GameObject destroyParticle;
     public TileType[] boardLayout;
-    private bool [,] blankSpaces;
+    private bool[,] blankSpaces;
     private BackgroundTile[,] breakableTiles;
     public GameObject[,] allDots;
     public Dot currentDot;
@@ -87,7 +87,6 @@ public class Board : MonoBehaviour
         }
     }
 
-    //สร้างตารางโดยลูปตามช่องที่ได้กำหนดไว้ กว้าง x สูง
     private void SetUp()
     {
         GenerateBlankSpaces();
@@ -96,38 +95,35 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                if( !blankSpaces[i,j] )
+                if (!blankSpaces[i, j])
                 {
                     Vector2 tempPosition = new Vector2(i, j + offSet);
-                    //ใส่กระเบื้องสีเทา
                     Vector2 tilePosition = new Vector2(i, j);
-                    //ใส่กระเบื้องเปลี่ยนจาก tempPosition เป็น  tilePosition 
-                    //ถ้าไม่ใส่ ใช้ tempPosition
                     GameObject backgroundTile = Instantiate(tilePrefab, tilePosition, Quaternion.identity) as GameObject;
                     backgroundTile.transform.parent = this.transform;
-                    backgroundTile.name = "( " + i + " , " + j + " )";
+                    backgroundTile.name = "( " + i + ", " + j + " )";
 
                     int dotToUse = Random.Range(0, dots.Length);
 
-                    int maxIteration = 0;
+                    int maxIterations = 0;
 
-                    while (MatchesAt(i, j, dots[dotToUse]) && maxIteration < 100)
+                    while (MatchesAt(i, j, dots[dotToUse]) && maxIterations < 100)
                     {
                         dotToUse = Random.Range(0, dots.Length);
-                        maxIteration++;
-                        Debug.Log(maxIteration);
+                        maxIterations++;
+                        Debug.Log(maxIterations);
                     }
-                    maxIteration = 0;
+                    maxIterations = 0;
 
                     GameObject dot = Instantiate(dots[dotToUse], tempPosition, Quaternion.identity);
                     dot.GetComponent<Dot>().row = j;
                     dot.GetComponent<Dot>().column = i;
-
                     dot.transform.parent = this.transform;
-                    dot.name = "( " + i + " , " + j + " )";
+                    dot.name = "( " + i + ", " + j + " )";
                     allDots[i, j] = dot;
                 }
             }
+
         }
     }
 
@@ -275,7 +271,6 @@ public class Board : MonoBehaviour
         }
     }
 
-
     //ทำลายที่จับคู่กัน
     private void DestroyMatchesAt(int column, int row)
     {
@@ -292,10 +287,11 @@ public class Board : MonoBehaviour
             {
                 //if it does, give one damage.
                 breakableTiles[column, row].TakeDamage(1);
-                if(breakableTiles[column, row].hitPoints <= 0)
+                if (breakableTiles[column, row].hitPoints <= 0)
                 {
                     breakableTiles[column, row] = null;
                 }
+
             }
 
             GameObject particle = Instantiate(destroyParticle, allDots[column, row].transform.position, Quaternion.identity);
@@ -315,6 +311,7 @@ public class Board : MonoBehaviour
             {
                 if (allDots[i, j] != null)
                 {
+
                     DestroyMatchesAt(i, j);
                 }
             }
@@ -372,16 +369,15 @@ public class Board : MonoBehaviour
             }
             nullCount = 0;
         }
-  
         yield return new WaitForSeconds(refillDelay * 0.5f);
         StartCoroutine(FillBoardCo());
     }
 
     private void RefillBoard()
     {
-        for(int i = 0; i < width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j <height; j++)
+            for (int j = 0; j < height; j++)
             {
                 if (allDots[i, j] == null && !blankSpaces[i, j])
                 {
@@ -408,13 +404,13 @@ public class Board : MonoBehaviour
 
     private bool MatchesOnBoard()
     {
-        for (int i = 0; i < width; i++ )
+        for (int i = 0; i < width; i++)
         {
-            for(int j = 0; j < height; j++)
+            for (int j = 0; j < height; j++)
             {
                 if (allDots[i, j] != null)
                 {
-                    if(allDots[i, j].GetComponent<Dot>().isMatched)
+                    if (allDots[i, j].GetComponent<Dot>().isMatched)
                     {
                         return true;
                     }
@@ -448,13 +444,14 @@ public class Board : MonoBehaviour
         yield return new WaitForSeconds(refillDelay);
         currentState = GameState.move;
         streakValue = 1;
+
     }
 
     private void SwitchPieces(int column, int row, Vector2 direction)
     {
         //Take the second piece and save it in a holder
         GameObject holder = allDots[column + (int)direction.x, row + (int)direction.y] as GameObject;
-        //switching the first dot to be the second position 
+        //switching the first dot to be the second position
         allDots[column + (int)direction.x, row + (int)direction.y] = allDots[column, row];
         //Set the first dot to be the second dot
         allDots[column, row] = holder;
@@ -468,20 +465,21 @@ public class Board : MonoBehaviour
             {
                 if (allDots[i, j] != null)
                 {
-                    //Make sure the one and two to the right are in the board
+                    //Make sure that one and two to the right are in the
+                    //board
                     if (i < width - 2)
                     {
                         //Check if the dots to the right and two to the right exist
                         if (allDots[i + 1, j] != null && allDots[i + 2, j] != null)
                         {
                             if (allDots[i + 1, j].tag == allDots[i, j].tag
-                                && allDots[i + 2, j].tag == allDots[i, j].tag)
+                               && allDots[i + 2, j].tag == allDots[i, j].tag)
                             {
                                 return true;
                             }
                         }
-                    }
 
+                    }
                     if (j < height - 2)
                     {
                         //Check if the dots above exist
@@ -494,10 +492,8 @@ public class Board : MonoBehaviour
                             }
                         }
                     }
-
                 }
             }
-
         }
         return false;
     }
@@ -510,7 +506,6 @@ public class Board : MonoBehaviour
             SwitchPieces(column, row, direction);
             return true;
         }
-
         SwitchPieces(column, row, direction);
         return false;
     }
@@ -530,7 +525,6 @@ public class Board : MonoBehaviour
                             return false;
                         }
                     }
-
                     if (j < height - 1)
                     {
                         if (SwitchAndCheck(i, j, Vector2.up))
@@ -600,4 +594,5 @@ public class Board : MonoBehaviour
             StartCoroutine(ShuffleBoard());
         }
     }
+
 }

@@ -8,8 +8,7 @@ public class FindMatches : MonoBehaviour
     private Board board;
     public List<GameObject> currentMatches = new List<GameObject>();
 
-    // Start is called before the first frame update
-    // Start is called before the first frame update
+    // Use this for initialization
     void Start()
     {
         board = FindObjectOfType<Board>();
@@ -94,7 +93,6 @@ public class FindMatches : MonoBehaviour
         AddToListAndMatch(dot1);
         AddToListAndMatch(dot2);
         AddToListAndMatch(dot3);
-
     }
 
     private IEnumerator FindAllMatchesCo()
@@ -173,36 +171,35 @@ public class FindMatches : MonoBehaviour
 
     public void MatchPiecesOfColor(string color)
     {
-        for(int i = 0; i < board.width; i++)
+        for (int i = 0; i < board.width; i++)
         {
-            for(int j = 0; j < board.height; j++)
+            for (int j = 0; j < board.height; j++)
             {
-                //CheckBombs if that piece exists
-                if (board.allDots[i, j] != null )
+                //Check if that piece exists
+                if (board.allDots[i, j] != null)
                 {
                     //Check the tag on that dot
                     if (board.allDots[i, j].tag == color)
                     {
                         //Set that dot to be matched
                         board.allDots[i, j].GetComponent<Dot>().isMatched = true;
-
                     }
                 }
             }
         }
     }
 
-    List<GameObject> GetAdjacentPieces(int coloumn, int row)
+    List<GameObject> GetAdjacentPieces(int column, int row)
     {
         List<GameObject> dots = new List<GameObject>();
-        for(int i = coloumn - 1; i <= coloumn + 1; i++)
+        for (int i = column - 1; i <= column + 1; i++)
         {
-            for(int j = row - 1; j <= row + 1; j++)
+            for (int j = row - 1; j <= row + 1; j++)
             {
-                //Check if the piece is insice the board
+                //Check if the piece is inside the board
                 if (i >= 0 && i < board.width && j >= 0 && j < board.height)
                 {
-                    if (board.allDots[i, j] = null)
+                    if (board.allDots[i, j] != null)
                     {
                         dots.Add(board.allDots[i, j]);
                         board.allDots[i, j].GetComponent<Dot>().isMatched = true;
@@ -213,15 +210,21 @@ public class FindMatches : MonoBehaviour
         return dots;
     }
 
-    List<GameObject> GetColumnPieces(int coloumn)
+    List<GameObject> GetColumnPieces(int column)
     {
         List<GameObject> dots = new List<GameObject>();
-        for(int i = 0; i< board.height; i++)
+        for (int i = 0; i < board.height; i++)
         {
-            if(board.allDots[coloumn, i] != null)
+            if (board.allDots[column, i] != null)
             {
-                dots.Add(board.allDots[coloumn, i]);
-                board.allDots[coloumn, i].GetComponent<Dot>().isMatched = true;
+                Dot dot = board.allDots[column, i].GetComponent<Dot>();
+                if (dot.isRowBomb)
+                {
+                    dots.Union(GetRowPieces(i)).ToList();
+                }
+
+                dots.Add(board.allDots[column, i]);
+                dot.isMatched = true;
             }
         }
         return dots;
@@ -234,8 +237,13 @@ public class FindMatches : MonoBehaviour
         {
             if (board.allDots[i, row] != null)
             {
+                Dot dot = board.allDots[i, row].GetComponent<Dot>();
+                if (dot.isColumnBomb)
+                {
+                    dots.Union(GetColumnPieces(i)).ToList();
+                }
                 dots.Add(board.allDots[i, row]);
-                board.allDots[i, row].GetComponent<Dot>().isMatched = true;
+                dot.isMatched = true;
             }
         }
         return dots;

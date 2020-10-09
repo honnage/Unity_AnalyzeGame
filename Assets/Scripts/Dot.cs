@@ -38,15 +38,14 @@ public class Dot : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
-    {
+	void Start () {
 
         isColumnBomb = false;
         isRowBomb = false;
         isColorBomb = false;
         isAdjacentBomb = false;
 
-        hintManager = FindObjectOfType<HintManager>();
+		hintManager = FindObjectOfType<HintManager>();
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         //targetX = (int)transform.position.x;
@@ -56,26 +55,13 @@ public class Dot : MonoBehaviour
         //previousRow = row;
         //previousColumn = column;
 
-    }
+	}
 
 
     //This is for testing and Debug only.
     private void OnMouseOver()
     {
-        //Destroy the hint
-        if (hintManager != null)
-        {
-            hintManager.DestroyHint();
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            //Destroy the hint
-            if (hintManager != null)
-            {
-                hintManager.DestroyHint();
-            }
-
+        if(Input.GetMouseButtonDown(1)){
             isAdjacentBomb = true;
             GameObject marker = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
             marker.transform.parent = this.transform;
@@ -84,8 +70,7 @@ public class Dot : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         /*
         if(isMatched){
             
@@ -96,21 +81,17 @@ public class Dot : MonoBehaviour
         */
         targetX = column;
         targetY = row;
-        if (Mathf.Abs(targetX - transform.position.x) > .1)
-        {
+        if (Mathf.Abs(targetX - transform.position.x) > .1){
             //Move Towards the target
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
-            if (board.allDots[column, row] != this.gameObject)
-            {
+            if(board.allDots[column, row] != this.gameObject){
                 board.allDots[column, row] = this.gameObject;
             }
             findMatches.FindAllMatches();
 
 
-        }
-        else
-        {
+        }else{
             //Directly set the position
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
@@ -135,8 +116,7 @@ public class Dot : MonoBehaviour
             transform.position = tempPosition;
 
         }
-    }
-
+	}
     public IEnumerator CheckMoveCo()
     {
         if (isColorBomb)
@@ -172,6 +152,7 @@ public class Dot : MonoBehaviour
             //otherDot = null;
         }
 
+
     }
 
     private void OnMouseDown()
@@ -181,22 +162,20 @@ public class Dot : MonoBehaviour
         {
             hintManager.DestroyHint();
         }
-
         if (board.currentState == GameState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Debug.Log(firstTouchPosition);
         }
     }
 
     private void OnMouseUp()
     {
-        if (board.currentState == GameState.move)
-        {
-            finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            CalculateAngle();
-        }
+    if (board.currentState == GameState.move)
+    {
+        finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        CalculateAngle();
     }
+}
 
     void CalculateAngle()
     {
@@ -294,8 +273,6 @@ public class Dot : MonoBehaviour
 
             board.currentState = GameState.move;
         }
-
-
 
     }
 

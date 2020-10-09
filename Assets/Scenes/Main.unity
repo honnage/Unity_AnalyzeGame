@@ -816,8 +816,6 @@ MonoBehaviour:
   - {fileID: 4650871370064332201, guid: 808db805160d0734197bacd8601b7646, type: 3}
   - {fileID: 4650871370064332201, guid: 603d4ddc32dd51940814c1430367bf43, type: 3}
   - {fileID: 4650871370064332201, guid: ec26986f2b0331043b02be23ff48425b, type: 3}
-  - {fileID: 4650871370064332201, guid: 4476ca0f819e0b64080a177646af8066, type: 3}
-  - {fileID: 4650871370064332201, guid: 03d6686a2bb76454d90f9d210e7277a9, type: 3}
   destroyParticle: {fileID: 6336478059808548686, guid: 4cb298c49dbaf7f4daf26d3d292e4882, type: 3}
   boardLayout:
   - x: 0
@@ -840,6 +838,7 @@ MonoBehaviour:
     tileKind: 1
   currentDot: {fileID: 0}
   basePieceValue: 10
+  refillDelay: 0.5
 --- !u!114 &1423561010
 MonoBehaviour:
   m_ObjectHideFlags: 0

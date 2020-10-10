@@ -4,20 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Puice Dot
-  - Lightgreen Dot
-  - Lightcyan Dot
+  - Dark Green Dot
+  - Green Dot
   - Indigo Dot
-  - Indianred Dot
-  - 'Gold Dot '
-  - Deepskyblue Dot
-  - Coral Dot
+  - Orange Dot
+  - Red Dot
   - Salmon Dot
-  - Pig Dot
-  - Chromosome Dot
-  - Rat Dot
-  - Virus Dot
-  - Erythrocyte Dot
+  - Teal Dot
+  - Yellow Dot
+  - Puice Dot
   - Color
   layers:
   - Default
@@ -55,4 +50,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particles
+    uniqueID: 1701559851
     locked: 0

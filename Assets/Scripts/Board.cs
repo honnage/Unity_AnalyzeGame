@@ -46,6 +46,7 @@ public class Board : MonoBehaviour
     public int basePieceValue = 10; //คะแนน
     private int streakValue = 1;
     private ScoreManager scoreManager;
+    private SoundManager soundManager;
     public float refillDelay = 0.5f;
     public int[] scoreGoals;
 
@@ -53,6 +54,7 @@ public class Board : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         breakableTiles = new BackgroundTile[width, height];
         findMatches = FindObjectOfType<FindMatches>();
@@ -205,7 +207,7 @@ public class Board : MonoBehaviour
 
     }
 
-    private void CheckToMakeBoms()
+    private void CheckToMakeBombs()
     {
         if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
         {
@@ -286,7 +288,7 @@ public class Board : MonoBehaviour
             //How many elements are in the matched pieces list from findmatches?
             if (findMatches.currentMatches.Count >= 4)
             {
-                CheckToMakeBoms();
+                CheckToMakeBombs();
             }
 
             //Does a tile need to break?
@@ -299,7 +301,11 @@ public class Board : MonoBehaviour
                     breakableTiles[column, row] = null;
                 }
             }
-
+            //Dose the sound manager exit?
+            if (soundManager != null)
+            {
+                soundManager.PlayRandomDestroyNoise();
+            }
             GameObject particle = Instantiate(destroyParticle, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(particle, .5f);
             Destroy(allDots[column, row]);

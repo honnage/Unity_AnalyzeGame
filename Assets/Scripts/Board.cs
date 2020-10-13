@@ -38,7 +38,7 @@ public class Board : MonoBehaviour {
     public GameObject[,] allDots;
     public Dot currentDot;
 	private FindMatches findMatches;
-	public int basePieceValue = 20;
+	public int basePieceValue = 10; //คะแนนของแต่ละอัน
 	private int streakValue = 1;
 	private ScoreManager scoreManager;
 	private SoundManager soundManager;

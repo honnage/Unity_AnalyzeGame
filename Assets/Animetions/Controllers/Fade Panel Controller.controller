@@ -86,7 +86,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Out
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7948287962289377315}
   m_Solo: 0
@@ -112,16 +115,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7707226616410422509}
-    m_Position: {x: 10, y: -50, z: 0}
+    m_Position: {x: 170, y: -10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7948287962289377315}
-    m_Position: {x: 180, y: 260, z: 0}
+    m_Position: {x: -40, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7593876313242031992}
-    m_Position: {x: 160, y: 340, z: 0}
+    m_Position: {x: -40, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6489715940389472943}
-    m_Position: {x: -50, y: 260, z: 0}
+    m_Position: {x: -40, y: 240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -129,7 +132,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -10, y: 80, z: 0}
   m_EntryPosition: {x: -20, y: 160, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 180, y: 50, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -6489715940389472943}
 --- !u!91 &9100000
@@ -140,7 +143,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Fade Panel Controller
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Out
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{325B507C-967A-FD8C-1F0C-D8FE0FC685D1}</ProjectGuid>
+    <ProjectGuid>{8B8208D6-B584-433D-987F-1FD06C824EDF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\HintManager.cs" />
     <Compile Include="Assets\Prefabs\AngleChecker.cs" />
+    <Compile Include="Assets\Scripts\FadePanelController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

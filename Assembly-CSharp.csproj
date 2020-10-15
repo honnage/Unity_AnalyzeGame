@@ -62,11 +62,13 @@
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\CameraScalar.cs" />
     <Compile Include="Assets\Scripts\DestroyParticle.cs" />
+    <Compile Include="Assets\Scripts\FadePanelController.cs" />
     <Compile Include="Assets\Scripts\Dot.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\HintManager.cs" />
     <Compile Include="Assets\Prefabs\AngleChecker.cs" />
-    <Compile Include="Assets\Scripts\FadePanelController.cs" />
+    <Compile Include="Assets\Scripts\GoalManager.cs" />
+    <Compile Include="Assets\Scripts\GoalPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

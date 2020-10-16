@@ -68,8 +68,10 @@
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\HintManager.cs" />
     <Compile Include="Assets\Scripts\GoalManager.cs" />
-    <Compile Include="Assets\Prefabs\AngleChecker.cs" />
     <Compile Include="Assets\Scripts\EndGameManager.cs" />
+    <Compile Include="Assets\Prefabs\AngleChecker.cs" />
+    <Compile Include="Assets\Scripts\Scriptble Objects\World.cs" />
+    <Compile Include="Assets\Scripts\Scriptble Objects\Level.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

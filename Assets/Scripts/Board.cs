@@ -23,7 +23,6 @@ public class TileType{
 
 public class Board : MonoBehaviour {
    
-
     public GameState currentState = GameState.move;
     public int width;
     public int height;
@@ -42,12 +41,14 @@ public class Board : MonoBehaviour {
 	private int streakValue = 1;
 	private ScoreManager scoreManager;
 	private SoundManager soundManager;
+	private GoalManager goalManager;
 	public float refillDelay = 0.5f;
 	public int[] scoreGoals;
 
 
 	// Use this for initialization
 	void Start () {
+		goalManager = FindObjectOfType<GoalManager>();
 		soundManager = FindObjectOfType<SoundManager>();
 		scoreManager = FindObjectOfType<ScoreManager>();
 		breakableTiles = new BackgroundTile[width, height];
@@ -263,6 +264,13 @@ public class Board : MonoBehaviour {
 				}
                 
 			}
+
+            if (goalManager != null)
+            {
+				goalManager.CompareGoal(allDots[column, row].tag.ToString());
+				goalManager.UpdateGoals();
+            }
+
             //Does the sound manager exist?
 			if(soundManager != null)
 			{

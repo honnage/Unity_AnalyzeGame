@@ -231,10 +231,10 @@ RectTransform:
   m_Father: {fileID: 1100681029}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.72200006, y: 0.41158333}
-  m_AnchorMax: {x: 0.93000007, y: 0.6768333}
-  m_AnchoredPosition: {x: 0.08999634, y: -0.32999992}
-  m_SizeDelta: {x: 0.07107544, y: -0.66656494}
+  m_AnchorMin: {x: 0.70600003, y: 0.41158333}
+  m_AnchorMax: {x: 0.95000005, y: 0.7237917}
+  m_AnchoredPosition: {x: -0.13999939, y: 0.0027694702}
+  m_SizeDelta: {x: 1.3198853, y: -0.005554199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &107779782
 MonoBehaviour:
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.21960784}
+  m_Color: {r: 0.3915094, g: 0.5682958, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 442596768}
   - component: {fileID: 442596770}
   - component: {fileID: 442596769}
+  - component: {fileID: 442596771}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -628,6 +629,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442596767}
   m_CullTransparentMesh: 0
+--- !u!114 &442596771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442596767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &570298821
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.44246173, g: 0.5343489, b: 0.5754717, a: 1}
+  m_Color: {r: 0.9056604, g: 0.7741534, b: 0.55108577, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1508,18 +1524,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGoals:
-  - numberNeeded: 5
+  - numberNeeded: 2
     numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: 050addd8e04c55d46bf8e127be3818d0, type: 3}
-    matchValue: chromosome
+    goalSprite: {fileID: 21300000, guid: e24916e999aab4ebebb588475e1dda99, type: 3}
+    matchValue: Breakable
   - numberNeeded: 5
     numberCollected: 0
     goalSprite: {fileID: 21300000, guid: 2a04b8108befd0e469132c2f411b55e5, type: 3}
     matchValue: Red blood cells
   - numberNeeded: 5
     numberCollected: 0
-    goalSprite: {fileID: 21300000, guid: b000da26e23a5b548947e53a73493240, type: 3}
-    matchValue: Virus
+    goalSprite: {fileID: 21300000, guid: 050addd8e04c55d46bf8e127be3818d0, type: 3}
+    matchValue: chromosome
+  currentGoals: []
   goalPrefab: {fileID: 4948530938262599647, guid: a30d3b59db189cb4c9dc9aebd1e4c860,
     type: 3}
   goalIntroParent: {fileID: 1516047257}
@@ -1563,13 +1580,9 @@ MonoBehaviour:
     type: 3}
   dots:
   - {fileID: 1200374735526922, guid: aaebf62979d89954d9986f64349113bf, type: 3}
-  - {fileID: 1364587841334750, guid: f8bd37a7d383940dbbc740c1a5e917b3, type: 3}
-  - {fileID: 1987821457856374, guid: fcf3445ef5a3748b4b2a5f2eeff8a7e1, type: 3}
-  - {fileID: 1200374735526922, guid: b2b4f3b58fe6149488d695e62606f9f0, type: 3}
-  - {fileID: 1200374735526922, guid: c2929d49655582d4988a22c860e9c403, type: 3}
-  - {fileID: 1200374735526922, guid: b20a4e5e8c1c68a419d50ddb5f7dea69, type: 3}
-  - {fileID: 1200374735526922, guid: b4444242721aa4641a889839169160a6, type: 3}
   - {fileID: 1200374735526922, guid: 2e9e222c1a1100a4dabbdfb1169a66c0, type: 3}
+  - {fileID: 1200374735526922, guid: b20a4e5e8c1c68a419d50ddb5f7dea69, type: 3}
+  - {fileID: 1200374735526922, guid: c2929d49655582d4988a22c860e9c403, type: 3}
   destroyParticle: {fileID: 6336478059808548686, guid: cce7f733f8032ab4aa1cadeb0da239cf,
     type: 3}
   boardLayout:
@@ -1587,14 +1600,14 @@ MonoBehaviour:
     tileKind: 1
   - x: 3
     y: 3
-    tileKind: 1
+    tileKind: 0
   - x: 3
     y: 4
-    tileKind: 1
+    tileKind: 0
   currentDot: {fileID: 0}
   basePieceValue: 10
   refillDelay: 0.5
-  scoreGoals: d0070000a00f000088130000
+  scoreGoals: f4010000e8030000d0070000
 --- !u!4 &1505387036
 Transform:
   m_ObjectHideFlags: 0
@@ -1896,7 +1909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.155}
   m_AnchorMax: {x: 1, y: 0.84800005}
-  m_AnchoredPosition: {x: -0.19552612, y: -15}
+  m_AnchoredPosition: {x: 0, y: -4.7578125}
   m_SizeDelta: {x: -128.39105, y: -9.515625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1550877865
@@ -1934,8 +1947,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cc8ae2e2c5c7f45d1af60fdcfc4e4116, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

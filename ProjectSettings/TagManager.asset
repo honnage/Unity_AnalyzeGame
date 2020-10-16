@@ -21,6 +21,7 @@ TagManager:
   - Virus
   - Red blood cells
   - White blood cells
+  - Breakable
   layers:
   - Default
   - TransparentFX

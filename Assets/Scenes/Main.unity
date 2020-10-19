@@ -255,7 +255,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 2
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
@@ -803,7 +803,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2128024081}
         m_TargetAssemblyTypeName: BackToSplash, Assembly-CSharp
-        m_MethodName: OK
+        m_MethodName: LoseOK
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1781,7 +1781,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2128024081}
         m_TargetAssemblyTypeName: BackToSplash, Assembly-CSharp
-        m_MethodName: OK
+        m_MethodName: WinOK
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2608,8 +2608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000030994, y: 72.2}
-  m_SizeDelta: {x: 275.7397, y: 111.71597}
+  m_AnchoredPosition: {x: -0.000068665, y: 72.2}
+  m_SizeDelta: {x: 284.7124, y: 111.71597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516047259
 MonoBehaviour:
@@ -2668,7 +2668,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 10
-  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1

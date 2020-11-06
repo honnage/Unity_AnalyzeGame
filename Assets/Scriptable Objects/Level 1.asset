@@ -15,17 +15,8 @@ MonoBehaviour:
   width: 7
   height: 7
   boardLayout:
-  - x: 0
-    y: 0
-    tileKind: 0
-  - x: 0
-    y: 0
-    tileKind: 0
-  - x: 0
-    y: 0
-    tileKind: 0
-  - x: 0
-    y: 0
+  - x: 1
+    y: 2
     tileKind: 0
   dots:
   - {fileID: 1200374735526922, guid: c2929d49655582d4988a22c860e9c403, type: 3}
@@ -38,6 +29,6 @@ MonoBehaviour:
     counterValue: 60
   levelGoals:
   - numberNeeded: 10
-    numberCollected: 0
+    numberCollected: 3
     goalSprite: {fileID: 21300000, guid: b000da26e23a5b548947e53a73493240, type: 3}
     matchValue: Virus

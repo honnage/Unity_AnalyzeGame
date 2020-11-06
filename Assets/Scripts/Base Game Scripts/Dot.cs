@@ -18,8 +18,8 @@ public class Dot : MonoBehaviour {
     private FindMatches findMatches;
     private Board board;
     public GameObject otherDot;
-    private Vector2 firstTouchPosition;
-    private Vector2 finalTouchPosition;
+    private Vector2 firstTouchPosition = Vector2.zero;
+    private Vector2 finalTouchPosition = Vector2.zero;
     private Vector2 tempPosition;
 
     [Header("Swipe Stuff")]
@@ -89,16 +89,15 @@ public class Dot : MonoBehaviour {
             transform.position = Vector2.Lerp(transform.position, tempPosition, .6f);
             if(board.allDots[column, row] != this.gameObject){
                 board.allDots[column, row] = this.gameObject;
+                findMatches.FindAllMatches();
             }
-            findMatches.FindAllMatches();
-
 
         }else{
             //Directly set the position
             tempPosition = new Vector2(targetX, transform.position.y);
             transform.position = tempPosition;
-
         }
+
         if (Mathf.Abs(targetY - transform.position.y) > .1)
         {
             //Move Towards the target
@@ -107,16 +106,15 @@ public class Dot : MonoBehaviour {
             if (board.allDots[column, row] != this.gameObject)
             {
                 board.allDots[column, row] = this.gameObject;
+                findMatches.FindAllMatches();
             }
-            findMatches.FindAllMatches();
-
+         
         }
         else
         {
             //Directly set the position
             tempPosition = new Vector2(transform.position.x, targetY);
             transform.position = tempPosition;
-
         }
 	}
 
@@ -130,6 +128,7 @@ public class Dot : MonoBehaviour {
             findMatches.MatchPiecesOfColor(this.gameObject.tag);
             otherDot.GetComponent<Dot>().isMatched = true;
         }
+        //Add a check here to see if they're both color bombs
         yield return new WaitForSeconds(.5f);
         if(otherDot != null){
             if(!isMatched && !otherDot.GetComponent<Dot>().isMatched){
@@ -153,7 +152,6 @@ public class Dot : MonoBehaviour {
             }
             //otherDot = null;
         }
-
     }
 
     private void OnMouseDown()
@@ -163,6 +161,7 @@ public class Dot : MonoBehaviour {
 		{
 			hintManager.DestroyHint();
 		}
+
         if (board.currentState == GameState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -184,9 +183,7 @@ public class Dot : MonoBehaviour {
             board.currentState = GameState.wait;
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
-
             board.currentDot = this;
-
         }else{
             board.currentState = GameState.move;
 
@@ -264,7 +261,6 @@ public class Dot : MonoBehaviour {
         }
         else
         {
-
             board.currentState = GameState.move;
         }
 

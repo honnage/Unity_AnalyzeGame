@@ -22,6 +22,7 @@ TagManager:
   - Red blood cells
   - White blood cells
   - Breakable
+  - Board
   layers:
   - Default
   - TransparentFX

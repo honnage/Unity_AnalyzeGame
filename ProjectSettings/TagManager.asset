@@ -63,3 +63,9 @@ TagManager:
   - name: Particles
     uniqueID: 1701559851
     locked: 0
+  - name: Background
+    uniqueID: 3453551859
+    locked: 0
+  - name: Markers
+    uniqueID: 3157262325
+    locked: 0

@@ -39,6 +39,6 @@ MonoBehaviour:
     counterValue: 100
   levelGoals:
   - numberNeeded: 5
-    numberCollected: 3
+    numberCollected: 0
     goalSprite: {fileID: 21300000, guid: b000da26e23a5b548947e53a73493240, type: 3}
     matchValue: Virus

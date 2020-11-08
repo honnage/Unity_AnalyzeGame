@@ -23,6 +23,7 @@ TagManager:
   - White blood cells
   - Breakable
   - Board
+  - Lock
   layers:
   - Default
   - TransparentFX

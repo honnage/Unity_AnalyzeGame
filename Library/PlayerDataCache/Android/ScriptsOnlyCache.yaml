@@ -21,8 +21,6 @@ ScriptsOnlyBuild:
     - World
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -594,7 +592,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 722f26e91b029b82c1f134d485717df1
+      Hash: 74b663c1386b9b7d596a91eaa44b9d75
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Board

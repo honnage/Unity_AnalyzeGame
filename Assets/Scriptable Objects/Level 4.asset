@@ -26,65 +26,21 @@ MonoBehaviour:
     tileKind: 3
   - x: 3
     y: 3
-    tileKind: 3
+    tileKind: 4
   - x: 4
     y: 3
-    tileKind: 3
+    tileKind: 4
   - x: 5
     y: 3
     tileKind: 3
   - x: 6
     y: 3
-    tileKind: 3
-  - x: 0
-    y: 4
-    tileKind: 3
-  - x: 1
-    y: 4
-    tileKind: 3
-  - x: 2
-    y: 4
-    tileKind: 3
-  - x: 3
-    y: 4
-    tileKind: 3
-  - x: 5
-    y: 4
-    tileKind: 3
-  - x: 6
-    y: 4
-    tileKind: 3
-  - x: 0
-    y: 2
-    tileKind: 3
-  - x: 1
-    y: 2
-    tileKind: 3
-  - x: 2
-    y: 2
-    tileKind: 3
-  - x: 3
-    y: 2
-    tileKind: 3
-  - x: 4
-    y: 2
-    tileKind: 3
-  - x: 5
-    y: 2
-    tileKind: 3
-  - x: 6
-    y: 2
-    tileKind: 3
-  - x: 4
-    y: 4
     tileKind: 3
   dots:
   - {fileID: 1200374735526922, guid: c2929d49655582d4988a22c860e9c403, type: 3}
   - {fileID: 1200374735526922, guid: b4444242721aa4641a889839169160a6, type: 3}
   - {fileID: 1200374735526922, guid: b20a4e5e8c1c68a419d50ddb5f7dea69, type: 3}
   - {fileID: 1200374735526922, guid: aaebf62979d89954d9986f64349113bf, type: 3}
-  - {fileID: 1200374735526922, guid: 2e9e222c1a1100a4dabbdfb1169a66c0, type: 3}
-  - {fileID: 1200374735526922, guid: b2b4f3b58fe6149488d695e62606f9f0, type: 3}
   scoreGoals: 64000000c8000000f4010000
   endGameRequirements:
     gameType: 1
@@ -93,4 +49,4 @@ MonoBehaviour:
   - numberNeeded: 10
     numberCollected: 0
     goalSprite: {fileID: 21300000, guid: 34dfffc6b8da43849a27778c197625db, type: 3}
-    matchValue: Concerete
+    matchValue: Concrete

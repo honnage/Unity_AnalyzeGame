@@ -517,7 +517,7 @@ RectTransform:
   m_Children:
   - {fileID: 1201133828}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -617,7 +617,7 @@ RectTransform:
   - {fileID: 1100681029}
   - {fileID: 604648202}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2048,7 +2048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1097859965
 LightingSettings:
@@ -2151,7 +2151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000047132, y: 404}
+  m_AnchoredPosition: {x: 0.0000047132, y: 348.32}
   m_SizeDelta: {x: 500, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100681030
@@ -2530,6 +2530,8 @@ MonoBehaviour:
     type: 3}
   concreteTilePrefab: {fileID: 8526519814089884653, guid: dd700257a6aba5c4ab40544a3831cd51,
     type: 3}
+  slimePiecePrefab: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
+    type: 3}
   dots:
   - {fileID: 1200374735526922, guid: aaebf62979d89954d9986f64349113bf, type: 3}
   - {fileID: 1200374735526922, guid: 2e9e222c1a1100a4dabbdfb1169a66c0, type: 3}
@@ -2545,6 +2547,7 @@ MonoBehaviour:
   basePieceValue: 10
   refillDelay: 0.5
   scoreGoals: 2c010000f4010000e8030000
+  makeSlime: 1
 --- !u!4 &1505387036
 Transform:
   m_ObjectHideFlags: 0
@@ -2562,7 +2565,7 @@ Transform:
   - {fileID: 1474937567}
   - {fileID: 2128024079}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1505387037
 MonoBehaviour:
@@ -3471,7 +3474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1967009339
 MonoBehaviour:
@@ -3680,3 +3683,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Splash
+--- !u!1001 &3796498194491392024
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_Name
+      value: Slime Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Chocolate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbe0a662266c19e4db57af86ecfa938d, type: 3}

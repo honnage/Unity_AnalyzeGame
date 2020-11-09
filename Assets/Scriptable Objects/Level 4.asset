@@ -12,32 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b0c50f567afed48bc4a721a06bb0be, type: 3}
   m_Name: Level 4
   m_EditorClassIdentifier: 
-  width: 7
+  width: 6
   height: 10
   boardLayout:
-  - x: 0
-    y: 3
-    tileKind: 3
-  - x: 1
-    y: 3
-    tileKind: 3
+  - x: 2
+    y: 2
+    tileKind: 4
   - x: 2
     y: 3
-    tileKind: 3
-  - x: 3
-    y: 3
     tileKind: 4
-  - x: 4
-    y: 3
-    tileKind: 4
-  - x: 5
-    y: 3
-    tileKind: 3
-  - x: 6
-    y: 3
-    tileKind: 3
   dots:
-  - {fileID: 1200374735526922, guid: c2929d49655582d4988a22c860e9c403, type: 3}
+  - {fileID: 1200374735526922, guid: 2e9e222c1a1100a4dabbdfb1169a66c0, type: 3}
   - {fileID: 1200374735526922, guid: b4444242721aa4641a889839169160a6, type: 3}
   - {fileID: 1200374735526922, guid: b20a4e5e8c1c68a419d50ddb5f7dea69, type: 3}
   - {fileID: 1200374735526922, guid: aaebf62979d89954d9986f64349113bf, type: 3}

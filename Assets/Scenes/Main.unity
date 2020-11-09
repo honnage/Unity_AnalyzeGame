@@ -1379,7 +1379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.0000038743, y: 135}
+  m_AnchoredPosition: {x: -0.0000038743, y: 100}
   m_SizeDelta: {x: 161, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763861966
@@ -2151,7 +2151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000047132, y: 348.32}
+  m_AnchoredPosition: {x: 0.00000056752, y: 348.95}
   m_SizeDelta: {x: 500, y: 192}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100681030
@@ -2249,7 +2249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee67998e4051c2044a3e81b3389814e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2e05f56930b2534fbfcb074eeff622d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2530,7 +2530,7 @@ MonoBehaviour:
     type: 3}
   concreteTilePrefab: {fileID: 8526519814089884653, guid: dd700257a6aba5c4ab40544a3831cd51,
     type: 3}
-  slimePiecePrefab: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
+  slimePiecePrefab: {fileID: 8126384829390335346, guid: bbe0a662266c19e4db57af86ecfa938d,
     type: 3}
   dots:
   - {fileID: 1200374735526922, guid: aaebf62979d89954d9986f64349113bf, type: 3}
@@ -2547,7 +2547,6 @@ MonoBehaviour:
   basePieceValue: 10
   refillDelay: 0.5
   scoreGoals: 2c010000f4010000e8030000
-  makeSlime: 1
 --- !u!4 &1505387036
 Transform:
   m_ObjectHideFlags: 0
@@ -3683,82 +3682,72 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Splash
---- !u!1001 &3796498194491392024
+--- !u!1001 &8126384829117573150
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.47
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.51
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335342, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2742418368690388736, guid: bbe0a662266c19e4db57af86ecfa938d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
+    - target: {fileID: 8126384829390335346, guid: bbe0a662266c19e4db57af86ecfa938d,
         type: 3}
       propertyPath: m_Name
       value: Slime Tile
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745611396861866998, guid: bbe0a662266c19e4db57af86ecfa938d,
-        type: 3}
-      propertyPath: m_TagString
-      value: Chocolate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe0a662266c19e4db57af86ecfa938d, type: 3}

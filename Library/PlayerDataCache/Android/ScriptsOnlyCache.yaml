@@ -21,6 +21,8 @@ ScriptsOnlyBuild:
     - World
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -28,8 +30,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -592,7 +596,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 74b663c1386b9b7d596a91eaa44b9d75
+      Hash: b2f9a869b6ac4aeb927396e46bd4d746
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Board
@@ -846,4 +850,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Splash.unity
   - Assets/Scenes/Main.unity
-  playerPath: D:/Project/DEV_Game/analyzeGameV1.apk
+  playerPath: D:/Project/DEV_Game/analyzeGameX.apk

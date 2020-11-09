@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Base Game Scripts\DestroyParticle.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\FadePanelController.cs" />
     <Compile Include="Assets\Scripts\UI\ConfirmPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\Dot.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\HintManager.cs" />
@@ -76,7 +77,7 @@
     <Compile Include="Assets\Scripts\Scriptble Objects\Level.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\EndGameManager.cs" />
     <Compile Include="Assets\Prefabs\AngleChecker.cs" />
-    <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\UI\GameStartManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

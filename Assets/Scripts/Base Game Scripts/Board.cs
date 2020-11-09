@@ -728,7 +728,8 @@ public class Board : MonoBehaviour
         yield return new WaitForSeconds(refillDelay);
         Debug.Log("Done Refilling");
         System.GC.Collect();
-        currentState = GameState.move;
+        if (currentState != GameState.pause)
+            currentState = GameState.move;
         makeSlime = true;
         streakValue = 1;
 

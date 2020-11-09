@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 958
     height: 988
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 624
     width: 432
     height: 314
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -71,10 +71,10 @@ MonoBehaviour:
     y: 0
     width: 432
     height: 938
-  m_MinSize: {x: 201, y: 321}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 201, y: 342}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 62
+  controlID: 122
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 104
+  controlID: 48
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 0
-  controlID: 105
+  controlID: 49
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 106
+  controlID: 50
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -323,8 +323,8 @@ MonoBehaviour:
     y: 0
     width: 276
     height: 938
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -457,9 +457,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 169.34654, y: 393.39392, z: -120.551994}
+    m_Target: {x: 150.84386, y: 199.0179, z: -184.6239}
     speed: 2
-    m_Value: {x: 169.34654, y: 393.39392, z: -120.551994}
+    m_Value: {x: 150.84386, y: 199.0179, z: -184.6239}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -510,9 +510,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 225.46268
+    m_Target: 221.41025
     speed: 2
-    m_Value: 225.46268
+    m_Value: 221.41025
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 14782
+  m_LastSelectedObjectID: 15174
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -710,9 +710,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: be390000
-      m_LastClickedID: 14782
-      m_ExpandedIDs: d805ffff6c08ffffcc16ffffba1cffff2c23ffff5cfbffffb4390000be390000e83900004e3a0000743a0000983a0000
+      m_SelectedIDs: 463b0000
+      m_LastClickedID: 15174
+      m_ExpandedIDs: d2faffff163a0000203a00002a3a0000ba3a0000f43a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -775,21 +775,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Base Game Scripts
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Base Game Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Project\DEV_Game\Analyze
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8c3c0000
-    m_LastClickedID: 15500
-    m_ExpandedIDs: 00000000863c0000883c00008a3c00008c3c00008e3c000000ca9a3b
+    scrollPos: {x: 0, y: 41}
+    m_SelectedIDs: 503d0000
+    m_LastClickedID: 15696
+    m_ExpandedIDs: 00000000203d0000223d0000243d0000263d0000283d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -817,7 +817,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: bc3b0000
     m_LastClickedID: 15292
-    m_ExpandedIDs: 00000000863c0000883c00008a3c00008c3c00008e3c0000
+    m_ExpandedIDs: 00000000203d0000223d0000243d0000263d0000283d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -848,15 +848,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 523a0000b0420000ec3a0000f23a00004c3d0000923a0000943a0000063a0000a83a0000823a00005a3b0000fe3a0000fc3a000000000000b83c0000e43c00001c3b0000f63c0000f83c0000843d0000263b0000203b00009c8b0000243b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Goal Prefab
-      m_OriginalName: Goal Prefab
+      m_Name: PauseManager
+      m_OriginalName: PauseManager
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 15100
+      m_UserData: 18948
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -906,7 +906,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 200
   m_AssetGUID: 
   m_InstanceID: 0
   m_LockTracker:

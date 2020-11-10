@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8B8208D6-B584-433D-987F-1FD06C824EDF}</ProjectGuid>
+    <ProjectGuid>{41464EC6-226B-CE65-5F17-EA3C460554EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,13 +71,13 @@
     <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\Dot.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\Board.cs" />
+    <Compile Include="Assets\Scripts\UI\GameStartManager.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\HintManager.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\GoalManager.cs" />
     <Compile Include="Assets\Scripts\Game Data  Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\Scriptble Objects\Level.cs" />
     <Compile Include="Assets\Scripts\Base Game Scripts\EndGameManager.cs" />
     <Compile Include="Assets\Prefabs\AngleChecker.cs" />
-    <Compile Include="Assets\Scripts\UI\GameStartManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
